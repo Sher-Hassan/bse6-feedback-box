@@ -32,7 +32,7 @@ function Nav({ active = 'Submit', showSpeakUp = true, onAdminClick }) {
       </div>
 
       <div className="pill pill--nav">
-        {['Submit', 'Categories', 'About', 'Admin'].map(label => (
+        {['Submit','Admin'].map(label => (
           <a
             key={label}
             href="#"
@@ -44,7 +44,7 @@ function Nav({ active = 'Submit', showSpeakUp = true, onAdminClick }) {
         ))}
       </div>
 
-      <div className="pill pill--right">
+      {/* <div className="pill pill--right">
         <span className="lang">English <Chevron /></span>
         {showSpeakUp && (
           <a href="#" className="cta" onClick={e => e.preventDefault()}>
@@ -52,7 +52,7 @@ function Nav({ active = 'Submit', showSpeakUp = true, onAdminClick }) {
             Speak Up
           </a>
         )}
-      </div>
+      </div> */}
     </nav>
   )
 }
@@ -60,12 +60,12 @@ function Nav({ active = 'Submit', showSpeakUp = true, onAdminClick }) {
 /* ── Anonymous mode toggle ── */
 function ModeToggle({ current = 'On' }) {
   return (
-    <div className="mode">
-      <span>Anonymous mode:</span>
+    <div className="modee">
+      {/* <span>Anonymous mode:</span>
       <span className="switch">
         <span className={current === 'On' ? 'on' : ''}>On</span>
         <span className={current === 'Off' ? 'on' : ''}>Off</span>
-      </span>
+      </span> */}
     </div>
   )
 }
