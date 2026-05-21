@@ -128,7 +128,7 @@ export default function App() {
   if (view === 'login') {
     return (
       <div className="app-shell">
-        <Nav active="Admin" showSpeakUp={false} />
+        <Nav active="Admin" showSpeakUp={false} onSubmitClick={() => setView('form')} />
         <div className="page-frame">
           <AdminLogin onCancel={() => setView('form')} />
         </div>
