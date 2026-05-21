@@ -23,7 +23,7 @@ export function Chevron({ size = 12 }) {
 }
 
 /* ── Floating pill nav ── */
-function Nav({ active = 'Submit', showSpeakUp = true, onAdminClick }) {
+function Nav({ active = 'Submit', showSpeakUp = true, onAdminClick, onSubmitClick }) {
   return (
     <nav className="nav">
       <div className="pill pill--logo">
@@ -37,7 +37,11 @@ function Nav({ active = 'Submit', showSpeakUp = true, onAdminClick }) {
             key={label}
             href="#"
             className={active === label ? 'active' : ''}
-            onClick={label === 'Admin' ? (e) => { e.preventDefault(); onAdminClick?.() } : (e) => e.preventDefault()}
+            onClick={e => {
+              e.preventDefault()
+              if (label === 'Admin') onAdminClick?.()
+              else onSubmitClick?.()
+            }}
           >
             {label}
           </a>
@@ -100,7 +104,7 @@ export default function App() {
   if (session) {
     return (
       <div className="app-shell">
-        <Nav active="Admin" showSpeakUp={false} />
+        <Nav active="Admin" showSpeakUp={false} onSubmitClick={() => supabase.auth.signOut()} />
         <div className="page-frame">
           <AdminDashboard session={session} />
         </div>
